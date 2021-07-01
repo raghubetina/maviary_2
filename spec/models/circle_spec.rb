@@ -12,6 +12,8 @@ RSpec.describe Circle, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_many(:contacts) }
+
     end
 
     describe "Validations" do

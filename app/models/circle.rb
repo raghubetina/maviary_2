@@ -9,6 +9,10 @@ class Circle < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :contacts,
+             :through => :circles_contacts,
+             :source => :contact
+
   # Validations
 
   validates :name, :uniqueness => { :scope => [:user_id] }

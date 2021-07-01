@@ -14,6 +14,10 @@ class Contact < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :circles,
+             :through => :circles_contacts,
+             :source => :circle
+
   # Validations
 
   validates :email, :uniqueness => { :scope => [:adder_id] }
