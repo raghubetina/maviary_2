@@ -5,6 +5,8 @@ class Chat < ApplicationRecord
 
   # Validations
 
+  validates :name, :presence => true
+
   # Scopes
 
   def to_s
