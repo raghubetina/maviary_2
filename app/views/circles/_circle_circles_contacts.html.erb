@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Circles Contacts
+
+    <a data-toggle="collapse" href="#circle_circles_contacts_new_form">
+      Add circles contact
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @circle.circles_contacts.each do |circles_contact| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <%= link_to circles_contact, circles_contact_path(circles_contact) %>
+        <!-- Show link end -->
+
+        <!-- Delete link start -->
+        <%= link_to circles_contact, method: :delete, data: { confirm: "Do you really want to delete this circles_contact" } do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+        <!-- Delete link end -->
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="circle_circles_contacts_new_form">
+        <!-- New associationcollection form start -->
+
+        <!-- New associationcollection form end -->
+      </div>
+    </div>
+
+  </ul>
+</div>
