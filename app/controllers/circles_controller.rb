@@ -5,7 +5,8 @@ class CirclesController < ApplicationController
 
   # GET /circles
   def index
-    @circles = current_user.circles.page(params[:page]).per(10)
+    @q = current_user.circles.ransack(params[:q])
+    @circles = @q.result(:distinct => true).includes(:user, :circles_contacts, :contacts).page(params[:page]).per(10)
   end
 
   # GET /circles/1

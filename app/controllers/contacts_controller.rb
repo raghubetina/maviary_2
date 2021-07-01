@@ -5,7 +5,8 @@ class ContactsController < ApplicationController
 
   # GET /contacts
   def index
-    @contacts = current_user.contacts_as_adder.page(params[:page]).per(10)
+    @q = current_user.contacts_as_adder.ransack(params[:q])
+    @contacts = @q.result(:distinct => true).includes(:adder, :added, :circles_contacts, :circles).page(params[:page]).per(10)
   end
 
   # GET /contacts/1

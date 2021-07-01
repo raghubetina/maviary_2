@@ -3,7 +3,8 @@ class InvitationsController < ApplicationController
 
   # GET /invitations
   def index
-    @invitations = Invitation.page(params[:page]).per(10)
+    @q = Invitation.ransack(params[:q])
+    @invitations = @q.result(:distinct => true).includes(:user, :chat).page(params[:page]).per(10)
   end
 
   # GET /invitations/1
