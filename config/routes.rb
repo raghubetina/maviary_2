@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "contacts#index"
   resources :messages
   resources :circles_contacts
   resources :circles
