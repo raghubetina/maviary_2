@@ -4,6 +4,8 @@ RSpec.describe User, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:invitations) }
+
     it { should have_many(:circles) }
 
     it { should have_many(:contacts_as_added) }
