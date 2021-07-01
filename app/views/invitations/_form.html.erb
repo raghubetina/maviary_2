@@ -1,0 +1,135 @@
+<% was_validated = invitation.errors.any? %>
+
+<%= form_with(model: invitation, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for chat_id start -->
+  <div class="form-group">
+    <% chat_class = "form-control" %>
+    <% chat_was_invalid = invitation.errors.include?(:chat) %>
+
+    <% if was_validated %>
+      <% if chat_was_invalid %>
+        <% chat_class << " is-invalid" %>
+      <% else %>
+        <% chat_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :chat_id %>
+    <!-- Input for chat_id start -->
+    <%= f.number_field :chat_id, class: chat_class, placeholder: "Enter chat" %>
+    <!-- Input for chat_id end -->
+    <% if chat_was_invalid %>
+      <% invitation.errors.full_messages_for(:chat).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for chat_id end -->
+  <!-- Label and input for user_id start -->
+  <div class="form-group">
+    <% user_class = "form-control" %>
+    <% user_was_invalid = invitation.errors.include?(:user) %>
+
+    <% if was_validated %>
+      <% if user_was_invalid %>
+        <% user_class << " is-invalid" %>
+      <% else %>
+        <% user_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :user_id %>
+    <!-- Input for user_id start -->
+    <%= f.number_field :user_id, class: user_class, placeholder: "Enter user" %>
+    <!-- Input for user_id end -->
+    <% if user_was_invalid %>
+      <% invitation.errors.full_messages_for(:user).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for user_id end -->
+  <!-- Label and input for token start -->
+  <div class="form-group">
+    <% token_class = "form-control" %>
+    <% token_was_invalid = invitation.errors.include?(:token) %>
+
+    <% if was_validated %>
+      <% if token_was_invalid %>
+        <% token_class << " is-invalid" %>
+      <% else %>
+        <% token_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :token %>
+    <!-- Input for token start -->
+    <%= f.text_field :token, class: token_class, placeholder: "Enter token" %>
+    <!-- Input for token end -->
+    <% if token_was_invalid %>
+      <% invitation.errors.full_messages_for(:token).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for token end -->
+  <!-- Label and input for clicked start -->
+  <div class="form-group">
+    <% clicked_class = "form-control" %>
+    <% clicked_was_invalid = invitation.errors.include?(:clicked) %>
+
+    <% if was_validated %>
+      <% if clicked_was_invalid %>
+        <% clicked_class << " is-invalid" %>
+      <% else %>
+        <% clicked_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :clicked %>
+    <!-- Input for clicked start -->
+    <%= f.number_field :clicked, class: clicked_class, placeholder: "Enter clicked" %>
+    <!-- Input for clicked end -->
+    <% if clicked_was_invalid %>
+      <% invitation.errors.full_messages_for(:clicked).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for clicked end -->
+  <!-- Label and input for rsvp_status start -->
+  <div class="form-group">
+    <% rsvp_status_class = "form-control" %>
+    <% rsvp_status_was_invalid = invitation.errors.include?(:rsvp_status) %>
+
+    <% if was_validated %>
+      <% if rsvp_status_was_invalid %>
+        <% rsvp_status_class << " is-invalid" %>
+      <% else %>
+        <% rsvp_status_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :rsvp_status %>
+    <!-- Input for rsvp_status start -->
+    <%= f.text_field :rsvp_status, class: rsvp_status_class, placeholder: "Enter rsvp status" %>
+    <!-- Input for rsvp_status end -->
+    <% if rsvp_status_was_invalid %>
+      <% invitation.errors.full_messages_for(:rsvp_status).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for rsvp_status end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>

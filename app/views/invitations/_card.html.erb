@@ -1,0 +1,61 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Invitation #<%= invitation.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Chat</dt>
+      <!-- Display chat_id start -->
+      <dd><%= invitation.chat_id %></dd>
+      <!-- Display chat_id end -->
+
+      <dt>User</dt>
+      <!-- Display user_id start -->
+      <dd><%= invitation.user_id %></dd>
+      <!-- Display user_id end -->
+
+      <dt>Token</dt>
+      <!-- Display token start -->
+      <dd><%= invitation.token %></dd>
+      <!-- Display token end -->
+
+      <dt>Clicked</dt>
+      <!-- Display clicked start -->
+      <dd><%= invitation.clicked %></dd>
+      <!-- Display clicked end -->
+
+      <dt>Rsvp status</dt>
+      <!-- Display rsvp_status start -->
+      <dd><%= invitation.rsvp_status %></dd>
+      <!-- Display rsvp_status end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back invitation, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link invitation start -->
+      <div class="col">
+        <%= link_to edit_invitation_url(invitation), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link invitation end -->
+
+      <!-- Delete link invitation start -->
+      <div class="col">
+        <%= link_to invitation, method: :delete, data: { confirm: "Do you really want to delete this invitation?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link invitation end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(invitation.updated_at) %> ago
+  </div>
+</div>
