@@ -1,5 +1,7 @@
 ActiveAdmin.register Contact do
 
+ permit_params :adder_id, :name, :added_id, :email, :picture
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
