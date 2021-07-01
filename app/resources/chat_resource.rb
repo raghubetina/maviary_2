@@ -14,6 +14,9 @@ class ChatResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :creator,
+             resource: UserResource
+
   # Indirect associations
 
 end

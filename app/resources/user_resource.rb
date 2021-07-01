@@ -9,6 +9,10 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :created_chats,
+             resource: ChatResource,
+             foreign_key: :creator_id
+
   # Indirect associations
 
 end
