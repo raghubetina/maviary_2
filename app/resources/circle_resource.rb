@@ -8,6 +8,8 @@ class CircleResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :circles_contacts
+
   belongs_to :user
 
   # Indirect associations
