@@ -6,23 +6,17 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Name</dt>
-      <!-- Display name start -->
       <dd><%= circle.name %></dd>
-      <!-- Display name end -->
 
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @circle.user.present? %>
           <%= link_to circle.user, circle.user %>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
       <dt>Picture</dt>
-      <!-- Display picture start -->
       <dd><%= circle.picture %></dd>
-      <!-- Display picture end -->
 
     </dl>
 
@@ -31,7 +25,6 @@
         <%= link_to_show_or_back circle, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link circle start -->
       <div class="col">
         <% if current_user == @circle.user %>
           <%= link_to edit_circle_url(circle), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -39,9 +32,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link circle end -->
 
-      <!-- Delete link circle start -->
       <div class="col">
         <% if current_user == @circle.user %>
           <%= link_to circle, method: :delete, data: { confirm: "Do you really want to delete this circle?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -49,7 +40,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link circle end -->
     </div>
   </div>
 

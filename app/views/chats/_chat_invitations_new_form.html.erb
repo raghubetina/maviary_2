@@ -1,48 +1,26 @@
-<!-- Form invitation start -->
 <%= form_with(model: @invitation, local: true) do |f| %>
-<!-- Form invitation end -->
 
-  <!-- Label and input for chat_id start -->
-  <!-- Input for chat_id start -->
   <%= f.hidden_field :chat_id, value: @chat.id %>
-  <!-- Input for chat_id end -->
-  <!-- Label and input for chat_id end -->
 
-  <!-- Label and input for user_id start -->
   <div class="form-group">
     <%= f.label :user_id %>
-    <!-- Input for user_id start -->
     <%= f.collection_select :user_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for user_id end -->
   </div>
-  <!-- Label and input for user_id end -->
 
-  <!-- Label and input for token start -->
   <div class="form-group">
     <%= f.label :token %>
-    <!-- Input for token start -->
     <%= f.text_field :token, class: "form-control" %>
-    <!-- Input for token end -->
   </div>
-  <!-- Label and input for token end -->
 
-  <!-- Label and input for clicked start -->
   <div class="form-group">
     <%= f.label :clicked %>
-    <!-- Input for clicked start -->
     <%= f.text_field :clicked, class: "form-control" %>
-    <!-- Input for clicked end -->
   </div>
-  <!-- Label and input for clicked end -->
 
-  <!-- Label and input for rsvp_status start -->
   <div class="form-group">
     <%= f.label :rsvp_status %>
-    <!-- Input for rsvp_status start -->
     <%= f.text_field :rsvp_status, class: "form-control" %>
-    <!-- Input for rsvp_status end -->
   </div>
-  <!-- Label and input for rsvp_status end -->
 
   <%= f.submit "Create invitation", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

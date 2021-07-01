@@ -10,18 +10,14 @@
   <ul class="list-group list-group-flush">
     <% @user.invitations.each do |invitation| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to invitation, invitation_path(invitation) %>
-        <!-- Show link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="user_invitations_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "users/user_invitations_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

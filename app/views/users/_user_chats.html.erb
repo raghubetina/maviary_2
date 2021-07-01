@@ -6,11 +6,9 @@
   <ul class="list-group list-group-flush">
     <% @user.chats.each do |chat| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <a href="/chats/<%= chat.id %>">
           <%= chat %>
         </a>
-        <!-- Show link end -->
 
       </li>
     <% end %>

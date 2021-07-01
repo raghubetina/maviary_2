@@ -1,21 +1,11 @@
-<!-- Form circles_contact start -->
 <%= form_with(model: @circles_contact, local: true) do |f| %>
-<!-- Form circles_contact end -->
 
-  <!-- Label and input for circle_id start -->
   <div class="form-group">
     <%= f.label :circle_id %>
-    <!-- Input for circle_id start -->
     <%= f.collection_select :circle_id, Circle.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for circle_id end -->
   </div>
-  <!-- Label and input for circle_id end -->
 
-  <!-- Label and input for contact_id start -->
-  <!-- Input for contact_id start -->
   <%= f.hidden_field :contact_id, value: @contact.id %>
-  <!-- Input for contact_id end -->
-  <!-- Label and input for contact_id end -->
 
   <%= f.submit "Create circles contact", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

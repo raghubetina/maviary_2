@@ -1,39 +1,21 @@
-<!-- Form message start -->
 <%= form_with(model: @message, local: true) do |f| %>
-<!-- Form message end -->
 
-  <!-- Label and input for body start -->
   <div class="form-group">
     <%= f.label :body %>
-    <!-- Input for body start -->
     <%= f.text_area :body, rows: "3", class: "form-control" %>
-    <!-- Input for body end -->
   </div>
-  <!-- Label and input for body end -->
 
-  <!-- Label and input for ancestry start -->
   <div class="form-group">
     <%= f.label :ancestry %>
-    <!-- Input for ancestry start -->
     <%= f.text_field :ancestry, class: "form-control" %>
-    <!-- Input for ancestry end -->
   </div>
-  <!-- Label and input for ancestry end -->
 
-  <!-- Label and input for chat_id start -->
   <div class="form-group">
     <%= f.label :chat_id %>
-    <!-- Input for chat_id start -->
     <%= f.collection_select :chat_id, Chat.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for chat_id end -->
   </div>
-  <!-- Label and input for chat_id end -->
 
-  <!-- Label and input for user_id start -->
-  <!-- Input for user_id start -->
   <%= f.hidden_field :user_id, value: @user.id %>
-  <!-- Input for user_id end -->
-  <!-- Label and input for user_id end -->
 
   <%= f.submit "Create message", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

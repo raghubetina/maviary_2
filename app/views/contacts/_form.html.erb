@@ -1,12 +1,7 @@
 <% was_validated = contact.errors.any? %>
 
 <%= form_with(model: contact, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for adder_id start -->
-  <!-- Input for "adder_id" start -->
   <%= f.hidden_field :adder_id, value: current_user.id %>
-  <!-- Input for "adder_id" end -->
-  <!-- Label and input for adder_id end -->
-  <!-- Label and input for name start -->
   <div class="form-group">
     <% name_class = "form-control" %>
     <% name_was_invalid = contact.errors.include?(:name) %>
@@ -20,9 +15,7 @@
     <% end %>
 
     <%= f.label :name %>
-    <!-- Input for name start -->
     <%= f.text_field :name, class: name_class, placeholder: "Enter name" %>
-    <!-- Input for name end -->
     <% if name_was_invalid %>
       <% contact.errors.full_messages_for(:name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -31,8 +24,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for name end -->
-  <!-- Label and input for added_id start -->
   <div class="form-group">
     <% added_class = "form-control" %>
     <% added_was_invalid = contact.errors.include?(:added) %>
@@ -46,9 +37,7 @@
     <% end %>
 
     <%= f.label :added_id %>
-    <!-- Input for added_id start -->
     <%= f.collection_select :added_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for added_id end -->
     <% if added_was_invalid %>
       <% contact.errors.full_messages_for(:added).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -57,8 +46,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for added_id end -->
-  <!-- Label and input for email start -->
   <div class="form-group">
     <% email_class = "form-control" %>
     <% email_was_invalid = contact.errors.include?(:email) %>
@@ -72,9 +59,7 @@
     <% end %>
 
     <%= f.label :email %>
-    <!-- Input for email start -->
     <%= f.text_field :email, class: email_class, placeholder: "Enter email" %>
-    <!-- Input for email end -->
     <% if email_was_invalid %>
       <% contact.errors.full_messages_for(:email).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -83,8 +68,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for email end -->
-  <!-- Label and input for picture start -->
   <div class="form-group">
     <% picture_class = "form-control" %>
     <% picture_was_invalid = contact.errors.include?(:picture) %>
@@ -98,9 +81,7 @@
     <% end %>
 
     <%= f.label :picture %>
-    <!-- Input for picture start -->
     <%= f.text_field :picture, class: picture_class, placeholder: "Enter picture" %>
-    <!-- Input for picture end -->
     <% if picture_was_invalid %>
       <% contact.errors.full_messages_for(:picture).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -109,6 +90,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for picture end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

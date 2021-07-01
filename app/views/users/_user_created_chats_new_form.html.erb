@@ -1,84 +1,46 @@
-<!-- Form chat start -->
 <%= form_with(model: @chat, local: true) do |f| %>
-<!-- Form chat end -->
 
-  <!-- Label and input for name start -->
   <div class="form-group">
     <%= f.label :name %>
-    <!-- Input for name start -->
     <%= f.text_field :name, class: "form-control" %>
-    <!-- Input for name end -->
   </div>
-  <!-- Label and input for name end -->
 
-  <!-- Label and input for creator_id start -->
-  <!-- Input for creator_id start -->
   <%= f.hidden_field :creator_id, value: @user.id %>
-  <!-- Input for creator_id end -->
-  <!-- Label and input for creator_id end -->
 
-  <!-- Label and input for picture start -->
   <div class="form-group">
     <%= f.label :picture %>
-    <!-- Input for picture start -->
     <%= f.text_field :picture, class: "form-control" %>
-    <!-- Input for picture end -->
   </div>
-  <!-- Label and input for picture end -->
 
-  <!-- Label and input for topic start -->
   <div class="form-group">
     <%= f.label :topic %>
-    <!-- Input for topic start -->
     <%= f.text_area :topic, rows: "3", class: "form-control" %>
-    <!-- Input for topic end -->
   </div>
-  <!-- Label and input for topic end -->
 
-  <!-- Label and input for link start -->
   <div class="form-group">
     <%= f.label :link %>
-    <!-- Input for link start -->
     <%= f.text_field :link, class: "form-control" %>
-    <!-- Input for link end -->
   </div>
-  <!-- Label and input for link end -->
 
-  <!-- Label and input for cover start -->
   <div class="form-group">
     <%= f.label :cover %>
-    <!-- Input for cover start -->
     <%= f.text_field :cover, class: "form-control" %>
-    <!-- Input for cover end -->
   </div>
-  <!-- Label and input for cover end -->
 
-  <!-- Label and input for event start -->
   <div class="form-check">
-    <!-- Input for event start -->
     <%= f.check_box :event, class: "form-check-input" %>
-    <!-- Input for event end -->
     <%= f.label :event, class: "form-check-label" %>
   </div>
-  <!-- Label and input for event end -->
 
-  <!-- Label and input for starts_at start -->
   <div class="form-group">
     <%= f.label :starts_at %>
-    <!-- Input for starts_at start -->
     <%= f.text_field :starts_at, class: "form-control" %>
-    <!-- Input for starts_at end -->
   </div>
-  <!-- Label and input for starts_at end -->
 
-  <!-- Label and input for ends_at start -->
   <div class="form-group">
     <%= f.label :ends_at %>
-    <!-- Input for ends_at start -->
     <%= f.text_field :ends_at, class: "form-control" %>
-    <!-- Input for ends_at end -->
   </div>
-  <!-- Label and input for ends_at end -->
 
   <%= f.submit "Create chat", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

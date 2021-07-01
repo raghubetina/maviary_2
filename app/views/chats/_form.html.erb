@@ -1,7 +1,6 @@
 <% was_validated = chat.errors.any? %>
 
 <%= form_with(model: chat, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for name start -->
   <div class="form-group">
     <% name_class = "form-control" %>
     <% name_was_invalid = chat.errors.include?(:name) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :name %>
-    <!-- Input for name start -->
     <%= f.text_field :name, class: name_class, placeholder: "Enter name" %>
-    <!-- Input for name end -->
     <% if name_was_invalid %>
       <% chat.errors.full_messages_for(:name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,13 +23,7 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for name end -->
-  <!-- Label and input for creator_id start -->
-  <!-- Input for "creator_id" start -->
   <%= f.hidden_field :creator_id, value: current_user.id %>
-  <!-- Input for "creator_id" end -->
-  <!-- Label and input for creator_id end -->
-  <!-- Label and input for picture start -->
   <div class="form-group">
     <% picture_class = "form-control" %>
     <% picture_was_invalid = chat.errors.include?(:picture) %>
@@ -46,9 +37,7 @@
     <% end %>
 
     <%= f.label :picture %>
-    <!-- Input for picture start -->
     <%= f.text_field :picture, class: picture_class, placeholder: "Enter picture" %>
-    <!-- Input for picture end -->
     <% if picture_was_invalid %>
       <% chat.errors.full_messages_for(:picture).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -57,8 +46,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for picture end -->
-  <!-- Label and input for topic start -->
   <div class="form-group">
     <% topic_class = "form-control" %>
     <% topic_was_invalid = chat.errors.include?(:topic) %>
@@ -72,9 +59,7 @@
     <% end %>
 
     <%= f.label :topic %>
-    <!-- Input for topic start -->
     <%= f.text_area :topic, class: topic_class, placeholder: "Enter topic" %>
-    <!-- Input for topic end -->
     <% if topic_was_invalid %>
       <% chat.errors.full_messages_for(:topic).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -83,8 +68,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for topic end -->
-  <!-- Label and input for link start -->
   <div class="form-group">
     <% link_class = "form-control" %>
     <% link_was_invalid = chat.errors.include?(:link) %>
@@ -98,9 +81,7 @@
     <% end %>
 
     <%= f.label :link %>
-    <!-- Input for link start -->
     <%= f.text_field :link, class: link_class, placeholder: "Enter link" %>
-    <!-- Input for link end -->
     <% if link_was_invalid %>
       <% chat.errors.full_messages_for(:link).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -109,8 +90,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for link end -->
-  <!-- Label and input for cover start -->
   <div class="form-group">
     <% cover_class = "form-control" %>
     <% cover_was_invalid = chat.errors.include?(:cover) %>
@@ -124,9 +103,7 @@
     <% end %>
 
     <%= f.label :cover %>
-    <!-- Input for cover start -->
     <%= f.text_field :cover, class: cover_class, placeholder: "Enter cover" %>
-    <!-- Input for cover end -->
     <% if cover_was_invalid %>
       <% chat.errors.full_messages_for(:cover).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -135,8 +112,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for cover end -->
-  <!-- Label and input for event start -->
   <div class="form-check">
     <% event_class = "form-check-input" %>
     <% event_was_invalid = chat.errors.include?(:event) %>
@@ -160,8 +135,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for event end -->
-  <!-- Label and input for starts_at start -->
   <div class="form-group">
     <% starts_at_class = "form-control" %>
     <% starts_at_was_invalid = chat.errors.include?(:starts_at) %>
@@ -175,9 +148,7 @@
     <% end %>
 
     <%= f.label :starts_at %>
-    <!-- Input for starts_at start -->
     <%= f.datetime_select :starts_at, class: starts_at_class, placeholder: "Enter starts at" %>
-    <!-- Input for starts_at end -->
     <% if starts_at_was_invalid %>
       <% chat.errors.full_messages_for(:starts_at).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -186,8 +157,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for starts_at end -->
-  <!-- Label and input for ends_at start -->
   <div class="form-group">
     <% ends_at_class = "form-control" %>
     <% ends_at_was_invalid = chat.errors.include?(:ends_at) %>
@@ -201,9 +170,7 @@
     <% end %>
 
     <%= f.label :ends_at %>
-    <!-- Input for ends_at start -->
     <%= f.datetime_select :ends_at, class: ends_at_class, placeholder: "Enter ends at" %>
-    <!-- Input for ends_at end -->
     <% if ends_at_was_invalid %>
       <% chat.errors.full_messages_for(:ends_at).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -212,6 +179,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for ends_at end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

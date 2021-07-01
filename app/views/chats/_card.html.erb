@@ -6,53 +6,35 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Name</dt>
-      <!-- Display name start -->
       <dd><%= chat.name %></dd>
-      <!-- Display name end -->
 
       <dt>Creator</dt>
-      <!-- Display creator_id start -->
       <dd>
         <% if @chat.creator.present? %>
           <%= link_to chat.creator, chat.creator %>
         <% end %>
       </dd>
-      <!-- Display creator_id end -->
 
       <dt>Picture</dt>
-      <!-- Display picture start -->
       <dd><%= chat.picture %></dd>
-      <!-- Display picture end -->
 
       <dt>Topic</dt>
-      <!-- Display topic start -->
       <dd><%= chat.topic %></dd>
-      <!-- Display topic end -->
 
       <dt>Link</dt>
-      <!-- Display link start -->
       <dd><%= chat.link %></dd>
-      <!-- Display link end -->
 
       <dt>Cover</dt>
-      <!-- Display cover start -->
       <dd><%= chat.cover %></dd>
-      <!-- Display cover end -->
 
       <dt>Event</dt>
-      <!-- Display event start -->
       <dd><%= chat.event %></dd>
-      <!-- Display event end -->
 
       <dt>Starts at</dt>
-      <!-- Display starts_at start -->
       <dd><%= chat.starts_at %></dd>
-      <!-- Display starts_at end -->
 
       <dt>Ends at</dt>
-      <!-- Display ends_at start -->
       <dd><%= chat.ends_at %></dd>
-      <!-- Display ends_at end -->
 
     </dl>
 
@@ -61,7 +43,6 @@
         <%= link_to_show_or_back chat, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link chat start -->
       <div class="col">
         <% if current_user == @chat.creator %>
           <%= link_to edit_chat_url(chat), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -69,9 +50,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link chat end -->
 
-      <!-- Delete link chat start -->
       <div class="col">
         <% if current_user == @chat.creator %>
           <%= link_to chat, method: :delete, data: { confirm: "Do you really want to delete this chat?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -79,7 +58,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link chat end -->
     </div>
   </div>
 

@@ -6,32 +6,24 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Body</dt>
-      <!-- Display body start -->
       <dd><%= message.body %></dd>
-      <!-- Display body end -->
 
       <dt>Ancestry</dt>
-      <!-- Display ancestry start -->
       <dd><%= message.ancestry %></dd>
-      <!-- Display ancestry end -->
 
       <dt>Chat</dt>
-      <!-- Display chat_id start -->
       <dd>
         <% if @message.chat.present? %>
           <%= link_to message.chat, message.chat %>
         <% end %>
       </dd>
-      <!-- Display chat_id end -->
 
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @message.user.present? %>
           <%= link_to message.user, message.user %>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
     </dl>
 
@@ -40,7 +32,6 @@
         <%= link_to_show_or_back message, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link message start -->
       <div class="col">
         <% if current_user == @message.user %>
           <%= link_to edit_message_url(message), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -48,9 +39,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link message end -->
 
-      <!-- Delete link message start -->
       <div class="col">
         <% if current_user == @message.user %>
           <%= link_to message, method: :delete, data: { confirm: "Do you really want to delete this message?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -58,7 +47,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link message end -->
     </div>
   </div>
 
