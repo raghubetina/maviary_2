@@ -1,25 +1,20 @@
 class CirclesContactsController < ApplicationController
   before_action :set_circles_contact, only: %i[show edit update destroy]
 
-  # GET /circles_contacts
   def index
     @q = CirclesContact.ransack(params[:q])
     @circles_contacts = @q.result(distinct: true).includes(:contact,
                                                            :circle).page(params[:page]).per(10)
   end
 
-  # GET /circles_contacts/1
   def show; end
 
-  # GET /circles_contacts/new
   def new
     @circles_contact = CirclesContact.new
   end
 
-  # GET /circles_contacts/1/edit
   def edit; end
 
-  # POST /circles_contacts
   def create
     @circles_contact = CirclesContact.new(circles_contact_params)
 
@@ -35,7 +30,6 @@ class CirclesContactsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /circles_contacts/1
   def update
     if @circles_contact.update(circles_contact_params)
       redirect_to @circles_contact,
@@ -45,7 +39,6 @@ class CirclesContactsController < ApplicationController
     end
   end
 
-  # DELETE /circles_contacts/1
   def destroy
     @circles_contact.destroy
     message = "CirclesContact was successfully deleted."
@@ -58,12 +51,10 @@ class CirclesContactsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_circles_contact
     @circles_contact = CirclesContact.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def circles_contact_params
     params.require(:circles_contact).permit(:circle_id, :contact_id)
   end

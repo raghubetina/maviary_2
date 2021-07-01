@@ -1,25 +1,20 @@
 class InvitationsController < ApplicationController
   before_action :set_invitation, only: %i[show edit update destroy]
 
-  # GET /invitations
   def index
     @q = Invitation.ransack(params[:q])
     @invitations = @q.result(distinct: true).includes(:user,
                                                       :chat).page(params[:page]).per(10)
   end
 
-  # GET /invitations/1
   def show; end
 
-  # GET /invitations/new
   def new
     @invitation = Invitation.new
   end
 
-  # GET /invitations/1/edit
   def edit; end
 
-  # POST /invitations
   def create
     @invitation = Invitation.new(invitation_params)
 
@@ -35,7 +30,6 @@ class InvitationsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /invitations/1
   def update
     if @invitation.update(invitation_params)
       redirect_to @invitation, notice: "Invitation was successfully updated."
@@ -44,7 +38,6 @@ class InvitationsController < ApplicationController
     end
   end
 
-  # DELETE /invitations/1
   def destroy
     @invitation.destroy
     message = "Invitation was successfully deleted."
@@ -57,12 +50,10 @@ class InvitationsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_invitation
     @invitation = Invitation.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def invitation_params
     params.require(:invitation).permit(:chat_id, :user_id, :token, :clicked,
                                        :rsvp_status)
