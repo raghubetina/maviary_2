@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :circles_contacts
   resources :circles
   resources :invitations
   resources :chats

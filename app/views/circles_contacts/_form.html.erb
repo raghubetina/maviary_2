@@ -1,0 +1,57 @@
+<% was_validated = circles_contact.errors.any? %>
+
+<%= form_with(model: circles_contact, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for circle_id start -->
+  <div class="form-group">
+    <% circle_class = "form-control" %>
+    <% circle_was_invalid = circles_contact.errors.include?(:circle) %>
+
+    <% if was_validated %>
+      <% if circle_was_invalid %>
+        <% circle_class << " is-invalid" %>
+      <% else %>
+        <% circle_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :circle_id %>
+    <!-- Input for circle_id start -->
+    <%= f.number_field :circle_id, class: circle_class, placeholder: "Enter circle" %>
+    <!-- Input for circle_id end -->
+    <% if circle_was_invalid %>
+      <% circles_contact.errors.full_messages_for(:circle).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for circle_id end -->
+  <!-- Label and input for contact_id start -->
+  <div class="form-group">
+    <% contact_class = "form-control" %>
+    <% contact_was_invalid = circles_contact.errors.include?(:contact) %>
+
+    <% if was_validated %>
+      <% if contact_was_invalid %>
+        <% contact_class << " is-invalid" %>
+      <% else %>
+        <% contact_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :contact_id %>
+    <!-- Input for contact_id start -->
+    <%= f.number_field :contact_id, class: contact_class, placeholder: "Enter contact" %>
+    <!-- Input for contact_id end -->
+    <% if contact_was_invalid %>
+      <% circles_contact.errors.full_messages_for(:contact).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for contact_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>

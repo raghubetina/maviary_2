@@ -1,0 +1,46 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Circles Contact #<%= circles_contact.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Circle</dt>
+      <!-- Display circle_id start -->
+      <dd><%= circles_contact.circle_id %></dd>
+      <!-- Display circle_id end -->
+
+      <dt>Contact</dt>
+      <!-- Display contact_id start -->
+      <dd><%= circles_contact.contact_id %></dd>
+      <!-- Display contact_id end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back circles_contact, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link circles_contact start -->
+      <div class="col">
+        <%= link_to edit_circles_contact_url(circles_contact), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link circles_contact end -->
+
+      <!-- Delete link circles_contact start -->
+      <div class="col">
+        <%= link_to circles_contact, method: :delete, data: { confirm: "Do you really want to delete this circles_contact?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link circles_contact end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(circles_contact.updated_at) %> ago
+  </div>
+</div>
