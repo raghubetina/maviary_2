@@ -4,6 +4,8 @@ RSpec.describe User, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:contacts_as_adder) }
+
     it { should have_many(:created_chats) }
 
     end

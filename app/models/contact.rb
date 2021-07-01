@@ -1,6 +1,10 @@
 class Contact < ApplicationRecord
   # Direct associations
 
+  belongs_to :adder,
+             :class_name => "User",
+             :counter_cache => :contacts_as_adder_count
+
   # Indirect associations
 
   # Validations
