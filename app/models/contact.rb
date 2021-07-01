@@ -5,6 +5,8 @@ class Contact < ApplicationRecord
 
   # Validations
 
+  validates :email, :uniqueness => { :scope => [:adder_id] }
+
   validates :email, :presence => true
 
   # Scopes
