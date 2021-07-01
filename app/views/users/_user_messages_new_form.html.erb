@@ -24,7 +24,7 @@
   <div class="form-group">
     <%= f.label :chat_id %>
     <!-- Input for chat_id start -->
-    <%= f.text_field :chat_id, class: "form-control" %>
+    <%= f.collection_select :chat_id, Chat.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for chat_id end -->
   </div>
   <!-- Label and input for chat_id end -->
