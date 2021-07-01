@@ -6,7 +6,7 @@
   <div class="form-group">
     <%= f.label :circle_id %>
     <!-- Input for circle_id start -->
-    <%= f.text_field :circle_id, class: "form-control" %>
+    <%= f.collection_select :circle_id, Circle.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for circle_id end -->
   </div>
   <!-- Label and input for circle_id end -->
