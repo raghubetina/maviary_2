@@ -48,6 +48,11 @@ group :production do
 end
 
 group :development, :test do
+  gem "pry-rails"
+  gem "awesome_print"
+  gem "better_errors"
+  gem "binding_of_caller"
+  gem "bullet"
   gem "byebug", platforms: %i[mri mingw x64_mingw]
   gem "factory_bot_rails"
   gem "faker"
