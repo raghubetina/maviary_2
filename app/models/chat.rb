@@ -1,6 +1,10 @@
 class Chat < ApplicationRecord
   # Direct associations
 
+  belongs_to :creator,
+             :class_name => "User",
+             :counter_cache => :created_chats_count
+
   # Indirect associations
 
   # Validations

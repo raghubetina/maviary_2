@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :created_chats,
+             :class_name => "Chat",
+             :foreign_key => "creator_id"
+
   # Indirect associations
 
   # Validations
