@@ -8,6 +8,7 @@ class CirclesController < ApplicationController
 
   # GET /circles/1
   def show
+    @circles_contact = CirclesContact.new
   end
 
   # GET /circles/new
@@ -24,7 +25,12 @@ class CirclesController < ApplicationController
     @circle = Circle.new(circle_params)
 
     if @circle.save
-      redirect_to @circle, notice: 'Circle was successfully created.'
+      message = 'Circle was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @circle, notice: message
+      end
     else
       render :new
     end

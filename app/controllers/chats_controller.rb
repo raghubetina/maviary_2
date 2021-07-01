@@ -8,6 +8,8 @@ class ChatsController < ApplicationController
 
   # GET /chats/1
   def show
+    @message = Message.new
+    @invitation = Invitation.new
   end
 
   # GET /chats/new
@@ -24,7 +26,12 @@ class ChatsController < ApplicationController
     @chat = Chat.new(chat_params)
 
     if @chat.save
-      redirect_to @chat, notice: 'Chat was successfully created.'
+      message = 'Chat was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @chat, notice: message
+      end
     else
       render :new
     end

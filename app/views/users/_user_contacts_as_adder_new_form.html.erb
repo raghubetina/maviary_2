@@ -1,0 +1,48 @@
+<!-- Form contact start -->
+<%= form_with(model: @contact, local: true) do |f| %>
+<!-- Form contact end -->
+
+  <!-- Label and input for adder_id start -->
+  <!-- Input for adder_id start -->
+  <%= f.hidden_field :adder_id, value: @user.id %>
+  <!-- Input for adder_id end -->
+  <!-- Label and input for adder_id end -->
+
+  <!-- Label and input for name start -->
+  <div class="form-group">
+    <%= f.label :name %>
+    <!-- Input for name start -->
+    <%= f.text_field :name, class: "form-control" %>
+    <!-- Input for name end -->
+  </div>
+  <!-- Label and input for name end -->
+
+  <!-- Label and input for added_id start -->
+  <div class="form-group">
+    <%= f.label :added_id %>
+    <!-- Input for added_id start -->
+    <%= f.text_field :added_id, class: "form-control" %>
+    <!-- Input for added_id end -->
+  </div>
+  <!-- Label and input for added_id end -->
+
+  <!-- Label and input for email start -->
+  <div class="form-group">
+    <%= f.label :email %>
+    <!-- Input for email start -->
+    <%= f.text_field :email, class: "form-control" %>
+    <!-- Input for email end -->
+  </div>
+  <!-- Label and input for email end -->
+
+  <!-- Label and input for picture start -->
+  <div class="form-group">
+    <%= f.label :picture %>
+    <!-- Input for picture start -->
+    <%= f.text_field :picture, class: "form-control" %>
+    <!-- Input for picture end -->
+  </div>
+  <!-- Label and input for picture end -->
+
+  <%= f.submit "Create contact", class: "btn btn-block btn-outline-secondary" %>
+<% end %>
