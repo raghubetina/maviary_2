@@ -13,6 +13,10 @@ class Chat < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :users,
+             :through => :invitations,
+             :source => :user
+
   # Validations
 
   validates :name, :presence => true

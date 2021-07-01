@@ -26,6 +26,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :chats,
+             :through => :invitations,
+             :source => :chat
+
   # Validations
 
   validates :name, :presence => true
