@@ -16,7 +16,7 @@
 
     <%= f.label :adder_id %>
     <!-- Input for adder_id start -->
-    <%= f.number_field :adder_id, class: adder_class, placeholder: "Enter adder" %>
+    <%= f.collection_select :adder_id, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for adder_id end -->
     <% if adder_was_invalid %>
       <% contact.errors.full_messages_for(:adder).each do |message| %>
