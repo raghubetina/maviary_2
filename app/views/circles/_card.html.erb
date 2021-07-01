@@ -1,0 +1,51 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Circle #<%= circle.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Name</dt>
+      <!-- Display name start -->
+      <dd><%= circle.name %></dd>
+      <!-- Display name end -->
+
+      <dt>User</dt>
+      <!-- Display user_id start -->
+      <dd><%= circle.user_id %></dd>
+      <!-- Display user_id end -->
+
+      <dt>Picture</dt>
+      <!-- Display picture start -->
+      <dd><%= circle.picture %></dd>
+      <!-- Display picture end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back circle, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link circle start -->
+      <div class="col">
+        <%= link_to edit_circle_url(circle), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link circle end -->
+
+      <!-- Delete link circle start -->
+      <div class="col">
+        <%= link_to circle, method: :delete, data: { confirm: "Do you really want to delete this circle?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link circle end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(circle.updated_at) %> ago
+  </div>
+</div>
