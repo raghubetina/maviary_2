@@ -35,6 +35,7 @@ gem "wdm" if Gem.win_platform?
 group :development do
   gem "annotate"
   gem "listen", ">= 3.0.5", "< 3.2"
+  gem "rails-erd"
   gem "rubocop-performance"
   gem "rubocop-rails"
   gem "sqlite3"

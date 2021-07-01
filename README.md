@@ -12,3 +12,7 @@ We don't want to paste these secrets directly into our code (because then they w
 Restart your server and your forms with image uploads should now work!
 ## Heroku Deployment
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/raghubetina/maviary_2)
+
+## ERD
+
+![Domain Model](erd.png?raw=true "Domain Model")
