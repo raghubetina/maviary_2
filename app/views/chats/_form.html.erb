@@ -28,30 +28,9 @@
   </div>
   <!-- Label and input for name end -->
   <!-- Label and input for creator_id start -->
-  <div class="form-group">
-    <% creator_class = "form-control" %>
-    <% creator_was_invalid = chat.errors.include?(:creator) %>
-
-    <% if was_validated %>
-      <% if creator_was_invalid %>
-        <% creator_class << " is-invalid" %>
-      <% else %>
-        <% creator_class << " is-valid" %>
-      <% end %>
-    <% end %>
-
-    <%= f.label :creator_id %>
-    <!-- Input for creator_id start -->
-    <%= f.collection_select :creator_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for creator_id end -->
-    <% if creator_was_invalid %>
-      <% chat.errors.full_messages_for(:creator).each do |message| %>
-        <div class="invalid-feedback d-flex">
-          <%= message %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
+  <!-- Input for "creator_id" start -->
+  <%= f.hidden_field :creator_id, value: current_user.id %>
+  <!-- Input for "creator_id" end -->
   <!-- Label and input for creator_id end -->
   <!-- Label and input for picture start -->
   <div class="form-group">
