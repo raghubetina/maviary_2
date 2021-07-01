@@ -20,4 +20,6 @@ class ContactResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :circles
+
 end
