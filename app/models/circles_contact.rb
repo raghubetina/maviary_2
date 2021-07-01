@@ -1,6 +1,9 @@
 class CirclesContact < ApplicationRecord
   # Direct associations
 
+  belongs_to :circle,
+             :counter_cache => true
+
   belongs_to :contact,
              :counter_cache => true
 
