@@ -23,7 +23,6 @@ gem "rails", "~> 6.0.2", ">= 6.0.2.2"
 gem "ransack"
 gem "rollbar"
 gem "rspec-rails"
-gem "rubocop-rails", "2.5.2", require: false
 gem "sass-rails", ">= 6"
 gem "seed_dump", git: "https://github.com/firstdraft/seed_dump.git"
 gem "shoulda-matchers"
