@@ -1,41 +1,45 @@
-class Api::V1::ChatsController < Api::V1::GraphitiController
-  def index
-    chats = ChatResource.all(params)
-    respond_with(chats)
-  end
+module Api
+  module V1
+    class ChatsController < Api::V1::GraphitiController
+      def index
+        chats = ChatResource.all(params)
+        respond_with(chats)
+      end
 
-  def show
-    chat = ChatResource.find(params)
-    respond_with(chat)
-  end
+      def show
+        chat = ChatResource.find(params)
+        respond_with(chat)
+      end
 
-  def create
-    chat = ChatResource.build(params)
+      def create
+        chat = ChatResource.build(params)
 
-    if chat.save
-      render jsonapi: chat, status: :created
-    else
-      render jsonapi_errors: chat
-    end
-  end
+        if chat.save
+          render jsonapi: chat, status: :created
+        else
+          render jsonapi_errors: chat
+        end
+      end
 
-  def update
-    chat = ChatResource.find(params)
+      def update
+        chat = ChatResource.find(params)
 
-    if chat.update_attributes
-      render jsonapi: chat
-    else
-      render jsonapi_errors: chat
-    end
-  end
+        if chat.update
+          render jsonapi: chat
+        else
+          render jsonapi_errors: chat
+        end
+      end
 
-  def destroy
-    chat = ChatResource.find(params)
+      def destroy
+        chat = ChatResource.find(params)
 
-    if chat.destroy
-      render jsonapi: { meta: {} }, status: :ok
-    else
-      render jsonapi_errors: chat
+        if chat.destroy
+          render jsonapi: { meta: {} }, status: :ok
+        else
+          render jsonapi_errors: chat
+        end
+      end
     end
   end
 end

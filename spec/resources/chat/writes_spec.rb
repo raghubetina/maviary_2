@@ -42,7 +42,7 @@ RSpec.describe ChatResource, type: :resource do
 
     xit "works (add some attributes and enable this spec)" do
       expect do
-        expect(instance.update_attributes).to eq(true)
+        expect(instance.update).to eq(true)
       end.to change { chat.reload.updated_at }
       # .and change { chat.foo }.to('bar') <- example
     end

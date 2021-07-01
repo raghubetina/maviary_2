@@ -44,7 +44,7 @@ module JsonapiRendererDocument
   def build_nested_data_hash(primary, included, include)
     return if include.keys.blank?
 
-    include.keys.each do |include_name|
+    include.each_key do |include_name|
       data_set = Set.new
 
       if primary[:relationships][include_name][:data].respond_to?(:to_ary)

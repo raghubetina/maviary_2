@@ -42,7 +42,7 @@ RSpec.describe CirclesContactResource, type: :resource do
 
     xit "works (add some attributes and enable this spec)" do
       expect do
-        expect(instance.update_attributes).to eq(true)
+        expect(instance.update).to eq(true)
       end.to change { circles_contact.reload.updated_at }
       # .and change { circles_contact.foo }.to('bar') <- example
     end
