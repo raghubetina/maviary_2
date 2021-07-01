@@ -7,7 +7,11 @@
     <dl class="mb-1">
       <dt>Adder</dt>
       <!-- Display adder_id start -->
-      <dd><%= contact.adder_id %></dd>
+      <dd>
+        <% if @contact.adder.present? %>
+          <%= link_to contact.adder, contact.adder %>
+        <% end %>
+      </dd>
       <!-- Display adder_id end -->
 
       <dt>Name</dt>
@@ -17,7 +21,11 @@
 
       <dt>Added</dt>
       <!-- Display added_id start -->
-      <dd><%= contact.added_id %></dd>
+      <dd>
+        <% if @contact.added.present? %>
+          <%= link_to contact.added, contact.added %>
+        <% end %>
+      </dd>
       <!-- Display added_id end -->
 
       <dt>Email</dt>

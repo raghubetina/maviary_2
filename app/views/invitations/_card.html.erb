@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>Chat</dt>
       <!-- Display chat_id start -->
-      <dd><%= invitation.chat_id %></dd>
+      <dd>
+        <% if @invitation.chat.present? %>
+          <%= link_to invitation.chat, invitation.chat %>
+        <% end %>
+      </dd>
       <!-- Display chat_id end -->
 
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= invitation.user_id %></dd>
+      <dd>
+        <% if @invitation.user.present? %>
+          <%= link_to invitation.user, invitation.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
       <dt>Token</dt>

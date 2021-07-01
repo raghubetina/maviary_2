@@ -12,7 +12,11 @@
 
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= circle.user_id %></dd>
+      <dd>
+        <% if @circle.user.present? %>
+          <%= link_to circle.user, circle.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
       <dt>Picture</dt>

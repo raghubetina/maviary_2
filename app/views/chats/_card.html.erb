@@ -12,7 +12,11 @@
 
       <dt>Creator</dt>
       <!-- Display creator_id start -->
-      <dd><%= chat.creator_id %></dd>
+      <dd>
+        <% if @chat.creator.present? %>
+          <%= link_to chat.creator, chat.creator %>
+        <% end %>
+      </dd>
       <!-- Display creator_id end -->
 
       <dt>Picture</dt>
