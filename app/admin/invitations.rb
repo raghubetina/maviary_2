@@ -1,5 +1,7 @@
 ActiveAdmin.register Invitation do
 
+ permit_params :chat_id, :user_id, :token, :clicked, :rsvp_status
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
