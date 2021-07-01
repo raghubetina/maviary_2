@@ -1,26 +1,19 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Chat, type: :model do
-  
-    describe "Direct Associations" do
-
+  describe "Direct Associations" do
     it { should have_many(:messages) }
 
     it { should have_many(:invitations) }
 
     it { should belong_to(:creator) }
+  end
 
-    end
-
-    describe "InDirect Associations" do
-
+  describe "InDirect Associations" do
     it { should have_many(:users) }
+  end
 
-    end
-
-    describe "Validations" do
-
+  describe "Validations" do
     it { should validate_presence_of(:name) }
-
-    end
+  end
 end

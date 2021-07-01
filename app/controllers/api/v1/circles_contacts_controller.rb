@@ -13,7 +13,7 @@ class Api::V1::CirclesContactsController < Api::V1::GraphitiController
     circles_contact = CirclesContactResource.build(params)
 
     if circles_contact.save
-      render jsonapi: circles_contact, status: 201
+      render jsonapi: circles_contact, status: :created
     else
       render jsonapi_errors: circles_contact
     end
@@ -33,7 +33,7 @@ class Api::V1::CirclesContactsController < Api::V1::GraphitiController
     circles_contact = CirclesContactResource.find(params)
 
     if circles_contact.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: circles_contact
     end

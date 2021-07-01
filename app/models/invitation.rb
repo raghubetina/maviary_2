@@ -2,10 +2,10 @@ class Invitation < ApplicationRecord
   # Direct associations
 
   belongs_to :chat,
-             :counter_cache => true
+             counter_cache: true
 
   belongs_to :user,
-             :counter_cache => true
+             counter_cache: true
 
   # Indirect associations
 
@@ -16,5 +16,4 @@ class Invitation < ApplicationRecord
   def to_s
     chat.to_s
   end
-
 end

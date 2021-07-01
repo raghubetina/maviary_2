@@ -9,12 +9,11 @@ class Message < ApplicationRecord
 
   # Validations
 
-  validates :body, :presence => true
+  validates :body, presence: true
 
   # Scopes
 
   def to_s
     body
   end
-
 end

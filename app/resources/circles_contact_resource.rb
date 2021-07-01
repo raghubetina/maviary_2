@@ -12,5 +12,4 @@ class CirclesContactResource < ApplicationResource
   belongs_to :contact
 
   # Indirect associations
-
 end
