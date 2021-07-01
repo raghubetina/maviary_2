@@ -10,6 +10,8 @@ class InvitationResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :chat
+
   belongs_to :user
 
   # Indirect associations
