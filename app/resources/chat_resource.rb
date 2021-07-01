@@ -14,6 +14,8 @@ class ChatResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :messages
+
   has_many   :invitations
 
   belongs_to :creator,
