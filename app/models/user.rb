@@ -1,6 +1,11 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :contacts_as_added,
+             :class_name => "Contact",
+             :foreign_key => "added_id",
+             :dependent => :destroy
+
   has_many   :contacts_as_adder,
              :class_name => "Contact",
              :foreign_key => "adder_id",
