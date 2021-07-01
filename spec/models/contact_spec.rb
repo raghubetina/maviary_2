@@ -4,6 +4,8 @@ RSpec.describe Contact, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:circles_contacts) }
+
     it { should belong_to(:added) }
 
     it { should belong_to(:adder) }

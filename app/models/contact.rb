@@ -1,6 +1,9 @@
 class Contact < ApplicationRecord
   # Direct associations
 
+  has_many   :circles_contacts,
+             :dependent => :destroy
+
   belongs_to :added,
              :class_name => "User",
              :counter_cache => :contacts_as_added_count
