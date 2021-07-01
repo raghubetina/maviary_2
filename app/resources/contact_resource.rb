@@ -10,6 +10,9 @@ class ContactResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :added,
+             resource: UserResource
+
   belongs_to :adder,
              resource: UserResource
 
