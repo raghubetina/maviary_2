@@ -1,4 +1,6 @@
 class ContactsController < ApplicationController
+  before_action :current_user_must_be_contact_adder, only: [:edit, :update, :destroy] 
+
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
 
   # GET /contacts
@@ -58,6 +60,14 @@ class ContactsController < ApplicationController
 
 
   private
+
+  def current_user_must_be_contact_adder
+    set_contact
+    unless current_user == @contact.adder
+      redirect_back fallback_location: root_path, alert: "You are not authorized for that."
+    end
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_contact
       @contact = Contact.find(params[:id])
