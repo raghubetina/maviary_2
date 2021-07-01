@@ -5,7 +5,7 @@ class CirclesController < ApplicationController
 
   # GET /circles
   def index
-    @circles = Circle.all
+    @circles = current_user.circles.page(params[:page]).per(10)
   end
 
   # GET /circles/1
