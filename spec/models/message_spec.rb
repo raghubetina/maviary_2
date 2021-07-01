@@ -2,7 +2,7 @@
 #
 # Table name: messages
 #
-#  id         :integer          not null, primary key
+#  id         :bigint           not null, primary key
 #  ancestry   :string
 #  body       :text
 #  created_at :datetime         not null
@@ -17,8 +17,8 @@
 #
 # Foreign Keys
 #
-#  chat_id  (chat_id => chats.id)
-#  user_id  (user_id => users.id)
+#  fk_rails_...  (chat_id => chats.id)
+#  fk_rails_...  (user_id => users.id)
 #
 require "rails_helper"
 

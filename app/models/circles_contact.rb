@@ -2,7 +2,7 @@
 #
 # Table name: circles_contacts
 #
-#  id         :integer          not null, primary key
+#  id         :bigint           not null, primary key
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  circle_id  :integer          not null
@@ -15,8 +15,8 @@
 #
 # Foreign Keys
 #
-#  circle_id   (circle_id => circles.id)
-#  contact_id  (contact_id => contacts.id)
+#  fk_rails_...  (circle_id => circles.id)
+#  fk_rails_...  (contact_id => contacts.id)
 #
 class CirclesContact < ApplicationRecord
   # Direct associations

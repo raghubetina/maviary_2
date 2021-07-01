@@ -2,7 +2,7 @@
 #
 # Table name: contacts
 #
-#  id                     :integer          not null, primary key
+#  id                     :bigint           not null, primary key
 #  circles_contacts_count :integer
 #  email                  :string
 #  name                   :string
@@ -19,8 +19,8 @@
 #
 # Foreign Keys
 #
-#  added_id  (added_id => users.id)
-#  adder_id  (adder_id => users.id)
+#  fk_rails_...  (added_id => users.id)
+#  fk_rails_...  (adder_id => users.id)
 #
 class Contact < ApplicationRecord
   # Direct associations

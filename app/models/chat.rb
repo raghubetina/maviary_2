@@ -2,7 +2,7 @@
 #
 # Table name: chats
 #
-#  id                :integer          not null, primary key
+#  id                :bigint           not null, primary key
 #  cover             :string
 #  ends_at           :datetime
 #  event             :boolean
@@ -22,7 +22,7 @@
 #
 # Foreign Keys
 #
-#  creator_id  (creator_id => users.id)
+#  fk_rails_...  (creator_id => users.id)
 #
 class Chat < ApplicationRecord
   # Direct associations

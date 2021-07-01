@@ -2,7 +2,7 @@
 #
 # Table name: circles
 #
-#  id                     :integer          not null, primary key
+#  id                     :bigint           not null, primary key
 #  circles_contacts_count :integer
 #  name                   :string
 #  picture                :string
@@ -16,7 +16,7 @@
 #
 # Foreign Keys
 #
-#  user_id  (user_id => users.id)
+#  fk_rails_...  (user_id => users.id)
 #
 class Circle < ApplicationRecord
   # Direct associations

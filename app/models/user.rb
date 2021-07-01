@@ -2,12 +2,12 @@
 #
 # Table name: users
 #
-#  id                      :integer          not null, primary key
+#  id                      :bigint           not null, primary key
 #  circles_count           :integer
 #  contacts_as_added_count :integer
 #  contacts_as_adder_count :integer
 #  created_chats_count     :integer
-#  email                   :string           default(""), not null
+#  email                   :citext           default(""), not null
 #  encrypted_password      :string           default(""), not null
 #  invitations_count       :integer
 #  name                    :string
