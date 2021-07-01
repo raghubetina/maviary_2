@@ -5,6 +5,8 @@ class Contact < ApplicationRecord
 
   # Validations
 
+  validates :email, :presence => true
+
   # Scopes
 
   def to_s
