@@ -9,6 +9,8 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :invitations
+
   has_many   :circles
 
   has_many   :contacts_as_added,
