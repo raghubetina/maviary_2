@@ -10,6 +10,8 @@ class ContactResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :circles_contacts
+
   belongs_to :added,
              resource: UserResource
 
