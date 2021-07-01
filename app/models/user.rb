@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :circles,
+             :dependent => :destroy
+
   has_many   :contacts_as_added,
              :class_name => "Contact",
              :foreign_key => "added_id",
