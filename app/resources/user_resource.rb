@@ -9,6 +9,8 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :circles
+
   has_many   :contacts_as_added,
              resource: ContactResource,
              foreign_key: :added_id
