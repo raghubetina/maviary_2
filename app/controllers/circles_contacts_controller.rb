@@ -3,7 +3,7 @@ class CirclesContactsController < ApplicationController
 
   # GET /circles_contacts
   def index
-    @circles_contacts = CirclesContact.all
+    @circles_contacts = CirclesContact.page(params[:page]).per(10)
   end
 
   # GET /circles_contacts/1

@@ -3,7 +3,7 @@ class InvitationsController < ApplicationController
 
   # GET /invitations
   def index
-    @invitations = Invitation.all
+    @invitations = Invitation.page(params[:page]).per(10)
   end
 
   # GET /invitations/1
