@@ -12,7 +12,7 @@
   <div class="form-group">
     <%= f.label :contact_id %>
     <!-- Input for contact_id start -->
-    <%= f.text_field :contact_id, class: "form-control" %>
+    <%= f.collection_select :contact_id, Contact.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for contact_id end -->
   </div>
   <!-- Label and input for contact_id end -->

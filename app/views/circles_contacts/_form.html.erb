@@ -42,7 +42,7 @@
 
     <%= f.label :contact_id %>
     <!-- Input for contact_id start -->
-    <%= f.number_field :contact_id, class: contact_class, placeholder: "Enter contact" %>
+    <%= f.collection_select :contact_id, Contact.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for contact_id end -->
     <% if contact_was_invalid %>
       <% circles_contact.errors.full_messages_for(:contact).each do |message| %>
