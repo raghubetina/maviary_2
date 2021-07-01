@@ -1,6 +1,9 @@
 class Invitation < ApplicationRecord
   # Direct associations
 
+  belongs_to :chat,
+             :counter_cache => true
+
   belongs_to :user,
              :counter_cache => true
 

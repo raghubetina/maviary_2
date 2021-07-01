@@ -1,6 +1,9 @@
 class Chat < ApplicationRecord
   # Direct associations
 
+  has_many   :invitations,
+             :dependent => :destroy
+
   belongs_to :creator,
              :class_name => "User",
              :counter_cache => :created_chats_count

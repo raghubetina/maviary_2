@@ -4,6 +4,8 @@ RSpec.describe Chat, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:invitations) }
+
     it { should belong_to(:creator) }
 
     end
