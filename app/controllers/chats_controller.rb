@@ -1,4 +1,6 @@
 class ChatsController < ApplicationController
+  before_action :current_user_must_be_chat_creator, only: [:edit, :update, :destroy] 
+
   before_action :set_chat, only: [:show, :edit, :update, :destroy]
 
   # GET /chats
@@ -59,6 +61,14 @@ class ChatsController < ApplicationController
 
 
   private
+
+  def current_user_must_be_chat_creator
+    set_chat
+    unless current_user == @chat.creator
+      redirect_back fallback_location: root_path, alert: "You are not authorized for that."
+    end
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_chat
       @chat = Chat.find(params[:id])
