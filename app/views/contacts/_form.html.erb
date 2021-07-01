@@ -68,7 +68,7 @@
 
     <%= f.label :added_id %>
     <!-- Input for added_id start -->
-    <%= f.number_field :added_id, class: added_class, placeholder: "Enter added" %>
+    <%= f.collection_select :added_id, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for added_id end -->
     <% if added_was_invalid %>
       <% contact.errors.full_messages_for(:added).each do |message| %>
