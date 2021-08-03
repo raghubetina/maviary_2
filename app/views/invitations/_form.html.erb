@@ -24,21 +24,21 @@
     <% end %>
   </div>
   <div class="form-group">
-    <% user_class = "form-control" %>
-    <% user_was_invalid = invitation.errors.include?(:user) %>
+    <% recipient_class = "form-control" %>
+    <% recipient_was_invalid = invitation.errors.include?(:recipient) %>
 
     <% if was_validated %>
-      <% if user_was_invalid %>
-        <% user_class << " is-invalid" %>
+      <% if recipient_was_invalid %>
+        <% recipient_class << " is-invalid" %>
       <% else %>
-        <% user_class << " is-valid" %>
+        <% recipient_class << " is-valid" %>
       <% end %>
     <% end %>
 
-    <%= f.label :user_id %>
-    <%= f.collection_select :user_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <% if user_was_invalid %>
-      <% invitation.errors.full_messages_for(:user).each do |message| %>
+    <%= f.label :recipient_id %>
+    <%= f.collection_select :recipient_id, User.all, :id, :to_s, {}, class: "form-control" %>
+    <% if recipient_was_invalid %>
+      <% invitation.errors.full_messages_for(:recipient).each do |message| %>
         <div class="invalid-feedback d-flex">
           <%= message %>
         </div>
@@ -111,5 +111,28 @@
       <% end %>
     <% end %>
   </div>
+  <div class="form-group">
+    <% role_class = "form-control" %>
+    <% role_was_invalid = invitation.errors.include?(:role) %>
+
+    <% if was_validated %>
+      <% if role_was_invalid %>
+        <% role_class << " is-invalid" %>
+      <% else %>
+        <% role_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :role %>
+    <%= f.text_field :role, class: role_class, placeholder: "Enter role" %>
+    <% if role_was_invalid %>
+      <% invitation.errors.full_messages_for(:role).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <%= f.hidden_field :sender_id, value: current_user.id %>
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

@@ -1,14 +1,14 @@
 <div class="card">
   <div class="card-header d-flex align-items-center justify-content-between">
-    Invitations
+    Sent Invitations
 
-    <a data-toggle="collapse" href="#user_invitations_new_form">
+    <a data-toggle="collapse" href="#user_sent_invitations_new_form">
       Add invitation
     </a>
   </div>
 
   <ul class="list-group list-group-flush">
-    <% @user.invitations.each do |invitation| %>
+    <% @user.sent_invitations.each do |invitation| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
         <%= link_to invitation, invitation_path(invitation) %>
 
@@ -16,8 +16,8 @@
     <% end %>
 
     <div class="card-footer">
-      <div class="collapse" id="user_invitations_new_form">
-        <%= render partial: "users/user_invitations_new_form" %>
+      <div class="collapse" id="user_sent_invitations_new_form">
+        <%= render partial: "users/user_sent_invitations_new_form" %>
       </div>
     </div>
 

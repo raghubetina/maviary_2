@@ -10,7 +10,6 @@ RSpec.describe Chat, type: :model do
   end
 
   describe "InDirect Associations" do
-    it { should have_many(:users) }
   end
 
   describe "Validations" do

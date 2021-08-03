@@ -30,18 +30,24 @@
 
 <div class="row justify-content-center mb-3">
   <div class="col-md-8">
-    <%= render partial: "users/user_invitations" %>
-  </div>
-</div>
-
-<div class="row justify-content-center mb-3">
-  <div class="col-md-8">
     <%= render partial: "users/user_messages" %>
   </div>
 </div>
 
 <div class="row justify-content-center mb-3">
   <div class="col-md-8">
-    <%= render partial: "users/user_chats" %>
+    <%= render partial: "users/user_sent_invitations" %>
+  </div>
+</div>
+
+<div class="row justify-content-center mb-3">
+  <div class="col-md-8">
+    <%= render partial: "users/user_received_invitations" %>
+  </div>
+</div>
+
+<div class="row justify-content-center mb-3">
+  <div class="col-md-8">
+    <%= render partial: "users/user_clicked_sent_invitations" %>
   </div>
 </div>

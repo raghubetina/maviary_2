@@ -12,10 +12,10 @@
         <% end %>
       </dd>
 
-      <dt>User</dt>
+      <dt>Recipient</dt>
       <dd>
-        <% if @invitation.user.present? %>
-          <%= link_to invitation.user, invitation.user %>
+        <% if @invitation.recipient.present? %>
+          <%= link_to invitation.recipient, invitation.recipient %>
         <% end %>
       </dd>
 
@@ -28,6 +28,16 @@
       <dt>Rsvp status</dt>
       <dd><%= invitation.rsvp_status %></dd>
 
+      <dt>Role</dt>
+      <dd><%= invitation.role %></dd>
+
+      <dt>Sender</dt>
+      <dd>
+        <% if @invitation.sender.present? %>
+          <%= link_to invitation.sender, invitation.sender %>
+        <% end %>
+      </dd>
+
     </dl>
 
     <div class="row">
@@ -36,14 +46,18 @@
       </div>
 
       <div class="col">
-        <%= link_to edit_invitation_url(invitation), class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-edit"></i>
+        <% if current_user == @invitation.sender %>
+          <%= link_to edit_invitation_url(invitation), class: "btn btn-block btn-sm btn-outline-secondary" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
         <% end %>
       </div>
 
       <div class="col">
-        <%= link_to invitation, method: :delete, data: { confirm: "Do you really want to delete this invitation?" }, class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if current_user == @invitation.sender %>
+          <%= link_to invitation, method: :delete, data: { confirm: "Do you really want to delete this invitation?" }, class: "btn btn-block btn-outline-secondary" do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
       </div>
     </div>

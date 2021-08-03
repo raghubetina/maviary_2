@@ -12,7 +12,6 @@ end
 
 group :production do
   gem "pg"
-  gem "rails_12factor"
 end
 # Use Puma as the app server
 gem "puma", "~> 4.1"
@@ -70,9 +69,10 @@ end
 gem "activerecord-import"
 gem "bootstrap3-datetimepicker-rails", "~> 4.17.43"
 gem "bootstrap4-kaminari-views"
-gem "doorkeeper", "~> 5.4.0"
+gem "devise-jwt", "~> 0.8.1"
 gem "kaminari"
 gem "momentjs-rails", ">= 2.9.0"
+gem "rack-cors"
 gem "ransack"
 gem "rollbar"
 gem "seed_dump", git: "https://github.com/firstdraft/seed_dump.git"

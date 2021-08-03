@@ -22,6 +22,4 @@ class ChatResource < ApplicationResource
              resource: UserResource
 
   # Indirect associations
-
-  many_to_many :users
 end
