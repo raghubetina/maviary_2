@@ -1,19 +1,24 @@
 class User < ApplicationRecord
+  include JwtToken
   # Direct associations
-  has_many :access_grants,
-           class_name: "Doorkeeper::AccessGrant",
-           foreign_key: :resource_owner_id,
-           dependent: :delete_all # or :destroy if you need callbacks
 
-  has_many :access_tokens,
-           class_name: "Doorkeeper::AccessToken",
-           foreign_key: :resource_owner_id,
-           dependent: :delete_all # or :destroy if you need callbacks
-
-  has_many   :messages,
+  has_many   :clicked_sent_invitations,
+             -> { clicked },
+             class_name: "Invitation",
+             foreign_key: "sender_id",
              dependent: :destroy
 
-  has_many   :invitations,
+  has_many   :received_invitations,
+             class_name: "Invitation",
+             foreign_key: "recipient_id",
+             dependent: :destroy
+
+  has_many   :sent_invitations,
+             class_name: "Invitation",
+             foreign_key: "sender_id",
+             dependent: :destroy
+
+  has_many   :messages,
              dependent: :destroy
 
   has_many   :circles,
@@ -34,10 +39,6 @@ class User < ApplicationRecord
              foreign_key: "creator_id"
 
   # Indirect associations
-
-  has_many   :chats,
-             through: :invitations,
-             source: :chat
 
   # Validations
 

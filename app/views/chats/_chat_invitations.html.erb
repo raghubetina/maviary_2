@@ -12,8 +12,10 @@
       <li class="list-group-item d-flex align-items-center justify-content-between">
         <%= link_to invitation, invitation_path(invitation) %>
 
-        <%= link_to invitation, method: :delete, data: { confirm: "Do you really want to delete this invitation" } do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if current_user == invitation.sender %>
+          <%= link_to invitation, method: :delete do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
 
       </li>

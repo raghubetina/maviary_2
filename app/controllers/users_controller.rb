@@ -6,8 +6,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @message = Message.new
     @invitation = Invitation.new
+    @message = Message.new
     @circle = Circle.new
     @contact = Contact.new
     @chat = Chat.new

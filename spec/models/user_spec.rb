@@ -2,9 +2,13 @@ require "rails_helper"
 
 RSpec.describe User, type: :model do
   describe "Direct Associations" do
-    it { should have_many(:messages) }
+    it { should have_many(:clicked_sent_invitations) }
 
-    it { should have_many(:invitations) }
+    it { should have_many(:received_invitations) }
+
+    it { should have_many(:sent_invitations) }
+
+    it { should have_many(:messages) }
 
     it { should have_many(:circles) }
 
@@ -16,7 +20,6 @@ RSpec.describe User, type: :model do
   end
 
   describe "InDirect Associations" do
-    it { should have_many(:chats) }
   end
 
   describe "Validations" do

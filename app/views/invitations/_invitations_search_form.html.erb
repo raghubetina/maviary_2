@@ -2,6 +2,11 @@
   <p class="lead">Narrow results:</p>
 
   <div class="form-group">
+    <%= f.label :role_cont, "Role contains" %>
+    <%= f.text_field :role_cont, :class => "form-control", :placeholder => "Role contains" %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :rsvp_status_cont, "Rsvp status contains" %>
     <%= f.text_field :rsvp_status_cont, :class => "form-control", :placeholder => "Rsvp status contains" %>
   </div>
@@ -65,8 +70,18 @@
 
 
   <div class="form-group">
-    <%= f.label :user_email_cont, "User email contains" %>
-    <%= f.text_field :user_email_cont, :class => "form-control", :placeholder => "User email contains" %>
+    <%= f.label :sender_email_cont, "User email contains" %>
+    <%= f.text_field :sender_email_cont, :class => "form-control", :placeholder => "User email contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :recipient_email_cont, "User email contains" %>
+    <%= f.text_field :recipient_email_cont, :class => "form-control", :placeholder => "User email contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :clicked_sender_email_cont, "User email contains" %>
+    <%= f.text_field :clicked_sender_email_cont, :class => "form-control", :placeholder => "User email contains" %>
   </div>
 
   <div class="form-group">

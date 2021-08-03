@@ -1,5 +1,4 @@
 class UserResource < ApplicationResource
-  secondary_endpoint "/current_user", [:show]
   attribute :id, :integer, writable: false
   attribute :created_at, :datetime, writable: false
   attribute :updated_at, :datetime, writable: false
@@ -10,9 +9,19 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
-  has_many   :messages
+  has_many   :clicked_sent_invitations,
+             resource: InvitationResource,
+             foreign_key: :sender_id
 
-  has_many   :invitations
+  has_many   :received_invitations,
+             resource: InvitationResource,
+             foreign_key: :recipient_id
+
+  has_many   :sent_invitations,
+             resource: InvitationResource,
+             foreign_key: :sender_id
+
+  has_many   :messages
 
   has_many   :circles
 
@@ -29,6 +38,4 @@ class UserResource < ApplicationResource
              foreign_key: :creator_id
 
   # Indirect associations
-
-  many_to_many :chats
 end
